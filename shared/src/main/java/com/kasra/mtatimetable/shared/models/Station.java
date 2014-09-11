@@ -1,4 +1,4 @@
-package com.kasra.mtatimetable.models;
+package com.kasra.mtatimetable.shared.models;
 
 /**
  * Hardcoded list of stations that I care about.

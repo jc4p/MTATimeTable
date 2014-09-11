@@ -1,4 +1,4 @@
-package com.kasra.mtatimetable.models;
+package com.kasra.mtatimetable.shared.models;
 
 public class POI {
     private double latitude;

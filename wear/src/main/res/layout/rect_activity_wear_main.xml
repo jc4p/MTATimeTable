@@ -5,11 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".WearMainActivity"
-    tools:deviceIds="wear_square">
+    tools:deviceIds="wear_square"
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_square" />
+        android:id="@+id/activity_main_textview"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/circular_background"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textsize_main"
+        tools:text="10 min\nto work" />
+
 </LinearLayout>

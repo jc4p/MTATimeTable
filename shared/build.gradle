@@ -1,15 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 20
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "com.kasra.mtatimetable"
+        applicationId "com.kasra.mtatimetable.shared"
         minSdkVersion 17
         targetSdkVersion 20
         versionCode 1
-        versionName "0.1"
+        versionName "1.0"
     }
     buildTypes {
         release {
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':shared')
-    wearApp project(':wear')
-    compile 'com.jakewharton:butterknife:5.1.2'
+    compile 'com.android.support:support-v4:20.0.0'
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    compile 'com.google.android.gms:play-services:+'
 }
