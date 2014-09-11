@@ -80,7 +80,6 @@ public class MainActivity extends Activity {
     }
 
     private void startItUp() {
-        Log.i("Test", "startItUp");
         if (fromHomeTimes == null || fromWorkTimes == null) {
             loadTimeTable(Station.CLINTON_WASHINGTON);
         } else {
@@ -103,7 +102,6 @@ public class MainActivity extends Activity {
     }
 
     private void onTimeTableLoaded(String stationId, Set<String> timeTable) {
-        Log.i("Test", "onTimeTableLoaded " + stationId);
         if(stationId.equals(Station.CLINTON_WASHINGTON)) {
             fromHomeTimes = new ArrayList<String>(timeTable);
             Collections.sort(fromHomeTimes);
@@ -121,7 +119,6 @@ public class MainActivity extends Activity {
         Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (lastKnownLocation != null) {
-            Log.i("Test", "Calling findNextTrainFrom lastKnownLocation");
             findNextTrainFrom(lastKnownLocation);
             return;
         }
@@ -129,7 +126,6 @@ public class MainActivity extends Activity {
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
                 // Called when a new location is found by the network location provider.
-                Log.i("Test", "Calling findNextTrainFrom onLocationChanged");
                 findNextTrainFrom(location);
                 locationManager.removeUpdates(this);
             }
@@ -181,14 +177,12 @@ public class MainActivity extends Activity {
             int departureHour = Integer.parseInt(new String(new char[] {nextDeparture.charAt(0), nextDeparture.charAt(1)}));
 
             if (departureHour < thisHour) {
-                Log.i("Test", "Skipping " + nextDeparture + " because " + departureHour + " < " + thisHour);
                 continue;
             }
 
             int departureMinute = Integer.parseInt(new String(new char[] { nextDeparture.charAt(3), nextDeparture.charAt(4)}));
 
             if (departureMinute < thisMinute) {
-                Log.i("Test", "Skipping " + nextDeparture + " because " + departureMinute + " < " + thisMinute);
                 continue;
             }
 
@@ -201,11 +195,8 @@ public class MainActivity extends Activity {
             }
 
             if (minutesUntilTrain <= 1) {
-                Log.i("Test", "Skipping " + nextDeparture + " because it's too soon");
                 continue;
             }
-
-            Log.i("Test", "Going with: " + nextDeparture);
 
             showResults(minutesUntilTrain);
             break;
